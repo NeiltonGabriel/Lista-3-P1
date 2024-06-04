@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void tela(int quebra, int fim, int contador, int contarquebra)
+{
+    if (contador > fim) return;
+    else if (contarquebra == quebra)
+    {
+        printf("%d\n", contador);
+        tela(quebra, fim, contador + 1, 1);
+    }
+    else
+    {
+        printf("%d ", contador);
+        tela(quebra, fim, contador + 1, contarquebra + 1);
+    }
+}
+
+int main()
+{
+
+    int quebra, fim, contador;
+
+    scanf("%d %d", &quebra, &fim);
+    
+    tela(quebra, fim, 1, 1);
+
+    return 0;
+}
