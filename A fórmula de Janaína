@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+//x^2- 4x + 5
+
+void conta(int comeco, int fim, int contador)
+{   
+    int resultado = 0;
+
+    if (contador > fim) return;
+    
+    resultado = ((contador * contador) - 4 * contador) + 5;
+    
+    printf("%d\n", resultado);
+
+    contador += 1;
+
+    conta(comeco, fim, contador);
+}
+
+int main()
+{
+    int comeco, fim, contador;
+
+    scanf("%d %d", &comeco, &fim);
+
+    contador = comeco;
+
+    conta(comeco, fim, contador);
+
+	return 0;
+}
