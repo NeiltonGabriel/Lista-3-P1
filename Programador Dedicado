@@ -1,0 +1,101 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main()
+{
+    int programas_domingo, programas_segunda, programas_terca, programas_quarta, programas_quinta, programas_sexta, programas_sabado;
+    int linhas_domingo, linhas_segunda, linhas_terca, linhas_quarta, linhas_quinta, linhas_sexta, linhas_sabado;
+    int fez_programas = 0, fez_linhas = 0;
+
+    scanf("%d %d", &programas_domingo, &linhas_domingo);
+    scanf("%d %d", &programas_segunda, &linhas_segunda);
+    scanf("%d %d", &programas_terca, &linhas_terca);
+    scanf("%d %d", &programas_quarta, &linhas_quarta);
+    scanf("%d %d", &programas_quinta, &linhas_quinta);
+    scanf("%d %d", &programas_sexta, &linhas_sexta);
+    scanf("%d %d", &programas_sabado, &linhas_sabado);
+
+    //fez programas suficientes
+    if (programas_domingo >= 5) fez_programas++;
+    if (programas_segunda >= 5) fez_programas++;
+    if (programas_terca >= 5) fez_programas++;
+    if (programas_quarta >= 5) fez_programas++;
+    if (programas_quinta >= 5) fez_programas++;
+    if (programas_sexta >= 5) fez_programas++;
+    if (programas_sabado >= 5) fez_programas++;
+
+    //fez linhas suficientes
+    if (linhas_domingo >= 100) fez_linhas++;
+    if (linhas_segunda >= 100) fez_linhas++;
+    if (linhas_terca >= 100) fez_linhas++;
+    if (linhas_quarta >= 100) fez_linhas++;
+    if (linhas_quinta >= 100) fez_linhas++;
+    if (linhas_sexta >= 100) fez_linhas++;
+    if (linhas_sabado >= 100) fez_linhas++;
+
+    printf("QUANTIDADE DE DIAS QUE ATINGIU MEDIA DE PROGRAMAS: %d\n", fez_programas);
+    printf("QUANTIDADE DE DIAS QUE ATINGIU MEDIA DE LINHAS: %d\n", fez_linhas);
+
+    if (linhas_domingo >= linhas_segunda && linhas_domingo >= linhas_terca && linhas_domingo >= linhas_quarta && linhas_domingo >= linhas_quinta && linhas_domingo >= linhas_sexta && linhas_domingo >= linhas_sabado)
+    {
+        if (linhas_domingo == linhas_sabado) printf("DIA QUE MAIS PRODUZIU: SABADO\n");
+        else if (linhas_domingo == linhas_sexta) printf("DIA QUE MAIS PRODUZIU: SEXTA\n");
+        else if (linhas_domingo == linhas_quinta) printf("DIA QUE MAIS PRODUZIU: QUINTA\n");
+        else if (linhas_domingo == linhas_quarta) printf("DIA QUE MAIS PRODUZIU: QUARTA\n");
+        else if (linhas_domingo == linhas_terca) printf("DIA QUE MAIS PRODUZIU: TERCA\n");
+        else if (linhas_domingo == linhas_segunda) printf("DIA QUE MAIS PRODUZIU: SEGUNDA\n");
+        else printf("DIA QUE MAIS PRODUZIU: DOMINGO\n");
+    }
+    else if (linhas_segunda >= linhas_domingo && linhas_segunda >= linhas_terca && linhas_segunda >= linhas_quarta && linhas_segunda >= linhas_quinta && linhas_segunda >= linhas_sexta && linhas_segunda >= linhas_sabado)
+    {
+        if (linhas_segunda == linhas_sabado) printf("DIA QUE MAIS PRODUZIU: SABADO\n");
+        else if (linhas_segunda == linhas_sexta) printf("DIA QUE MAIS PRODUZIU: SEXTA\n");
+        else if (linhas_segunda == linhas_quinta) printf("DIA QUE MAIS PRODUZIU: QUINTA\n");
+        else if (linhas_segunda == linhas_quarta) printf("DIA QUE MAIS PRODUZIU: QUARTA\n");
+        else if (linhas_segunda == linhas_terca) printf("DIA QUE MAIS PRODUZIU: TERCA\n");
+        else printf("DIA QUE MAIS PRODUZIU: SEGUNDA\n");
+    }
+    else if (linhas_terca >= linhas_domingo && linhas_terca >= linhas_segunda && linhas_terca >= linhas_quarta && linhas_terca >= linhas_quinta && linhas_terca >= linhas_sexta && linhas_terca >= linhas_sabado)
+    {
+        if (linhas_terca == linhas_sabado) printf("DIA QUE MAIS PRODUZIU: SABADO\n");
+        else if (linhas_terca == linhas_sexta) printf("DIA QUE MAIS PRODUZIU: SEXTA\n");
+        else if (linhas_terca == linhas_quinta) printf("DIA QUE MAIS PRODUZIU: QUINTA\n");
+        else if (linhas_terca == linhas_quarta) printf("DIA QUE MAIS PRODUZIU: QUARTA\n");
+        else printf("DIA QUE MAIS PRODUZIU: TERCA\n");
+    }
+    else if (linhas_quarta >= linhas_domingo && linhas_quarta >= linhas_segunda && linhas_quarta >= linhas_terca && linhas_quarta >= linhas_quinta && linhas_quarta >= linhas_sexta && linhas_quarta >= linhas_sabado)
+    {
+        if (linhas_quarta == linhas_sabado) printf("DIA QUE MAIS PRODUZIU: SABADO\n");
+        else if (linhas_quarta == linhas_sexta) printf("DIA QUE MAIS PRODUZIU: SEXTA\n");
+        else if (linhas_quarta == linhas_quinta) printf("DIA QUE MAIS PRODUZIU: QUINTA\n");
+        else printf("DIA QUE MAIS PRODUZIU: QUARTA\n");
+    }
+    else if (linhas_quinta >= linhas_domingo && linhas_quinta >= linhas_segunda && linhas_quinta >= linhas_terca && linhas_quinta >= linhas_quarta && linhas_quinta >= linhas_sexta && linhas_quinta >= linhas_sabado)
+    {
+        if (linhas_quinta == linhas_sabado) printf("DIA QUE MAIS PRODUZIU: SABADO\n");
+        else if (linhas_quinta == linhas_sexta) printf("DIA QUE MAIS PRODUZIU: SEXTA\n");
+        else printf("DIA QUE MAIS PRODUZIU: QUINTA\n");
+    }
+    else if (linhas_sexta >= linhas_domingo && linhas_sexta >= linhas_segunda && linhas_sexta >= linhas_terca && linhas_sexta >= linhas_quarta && linhas_sexta >= linhas_quinta && linhas_sexta >= linhas_sabado)
+    {
+        if (linhas_sexta == linhas_sabado) printf("DIA QUE MAIS PRODUZIU: SABADO\n");
+        else printf("DIA QUE MAIS PRODUZIU: sexta\n");
+    }
+    else if (linhas_sabado >= linhas_domingo && linhas_sabado >= linhas_segunda && linhas_sabado >= linhas_terca && linhas_sabado >= linhas_quarta && linhas_sabado >= linhas_quinta && linhas_sabado >= linhas_sexta)
+    {
+        printf("DIA QUE MAIS PRODUZIU: SABADO\n");
+    }
+
+    return 0;
+}
+/*5 programas e 100 linhas de c�digo por dia
+primeiro � domingo
+imprimir em quantos dias fez no minimo 5 programas
+imprimir em quantos dias fez no minimo 100 linhas
+imprimir qual dia produziu mais
+
+produzir mais = maior quantidade de linhas, se empatar imprime o dia mais avan�ado
+sequ�ncia de dias:
+domingo, segunda, terca, quarta, quinta, sabado, sabado*/
