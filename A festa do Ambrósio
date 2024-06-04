@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int calcular(int limite_inferior, int limite_superior, int quantidade_D, int quantidade_inicial, int resultado);
+
+int main() 
+{
+    int limite_inferior, limite_superior, quantidade_D, quantidade_inicial, resultado_inicial;
+
+    scanf("%d %d %d %d", &limite_inferior, &limite_superior, &quantidade_D, &quantidade_inicial);
+
+    resultado_inicial = limite_inferior * (quantidade_inicial + (quantidade_D * (limite_superior - limite_inferior)));
+    
+    printf("%d\n", calcular(limite_inferior + 1, limite_superior, quantidade_D, quantidade_inicial, resultado_inicial));
+
+	return 0;
+}
+
+int calcular(int limite_inferior, int limite_superior, int quantidade_D, int quantidade_inicial, int resultado)
+{
+    if (resultado < limite_inferior * (quantidade_inicial + (quantidade_D * (limite_superior - limite_inferior))))
+    {
+        resultado = limite_inferior * (quantidade_inicial + (quantidade_D * (limite_superior - limite_inferior))); 
+    }
+    if (limite_inferior < limite_superior) return calcular(limite_inferior + 1, limite_superior, quantidade_D, quantidade_inicial, resultado);
+    
+    return resultado;
+}
