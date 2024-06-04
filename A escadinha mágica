@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+void tela(int comeco, int final, int contador, int contarquebra);
+
+int main()
+{
+
+    int final;
+
+    scanf("%d", &final);
+
+    tela(1, final, 1, 1);
+
+	return 0;
+}
+
+void tela(int comeco, int final, int contador, int contarquebra)
+{
+    if (contador > final) return;
+    if (contarquebra == comeco)
+    {
+        printf("%d\n", comeco);
+        tela(1, final, contador + 1, contarquebra + 1);
+    }
+    if (contarquebra > comeco)
+    {
+        printf("%d ", comeco);
+        tela(comeco + 1, final, contador, contarquebra);
+    }
+}
