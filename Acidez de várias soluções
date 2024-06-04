@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+void teste()
+{
+    double ph;
+
+    scanf("%lf", &ph);
+
+    if (ph != -1)
+    {
+        if (ph > 7) printf("BASICA\n");
+        else if (ph < 7) printf("ACIDA\n");
+        else if (ph == 7) printf("NEUTRA\n");
+        teste();
+    }
+
+    else return;
+
+}
+int main()
+{
+    
+    teste();
+    
+    return 0;
+}
