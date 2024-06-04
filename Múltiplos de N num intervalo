@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+//multiplos de x, no intervalo [a, b]
+
+void vezes(int valor, int limite_inferior, int limite_superior, int multiplicador, int contador)
+{
+    int resultado;
+
+    resultado =  valor * multiplicador;
+    
+    if (resultado < limite_inferior) vezes(valor, limite_inferior, limite_superior, multiplicador + 1, contador);
+    
+    else if ((resultado >= limite_inferior) && (resultado <= limite_superior))
+    {
+        printf("%d\n", resultado);
+        vezes(valor, limite_inferior, limite_superior, multiplicador + 1, contador + 1);
+    }
+    else if (contador == 0) printf("INEXISTENTE\n");
+    else return;
+    
+}
+int main()
+{
+    int x, a, b;
+
+    scanf("%d %d %d", &x, &a, &b);
+
+    vezes(x, a, b, 1, 0);
+
+	return 0;
+}
