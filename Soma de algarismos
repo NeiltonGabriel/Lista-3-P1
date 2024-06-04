@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int somar(int numero)
+{
+    if (numero < 10) return numero % 10;
+    else if (numero == 10) return numero / 10;
+    else
+    {
+        return (numero % 10) + somar(numero / 10); 
+    }
+}
+int main()
+{
+
+    int numero, resultado;
+
+    scanf("%d", &numero);
+
+    resultado = somar(numero);
+
+    printf("%d\n", resultado);
+
+    return 0;
+}
+
+/*xyz
+
+x + y + z 
+
+18 / 10 = 1 resto 8 -> 18 / 10 + 1 % 10
+111 / 10 = 11 resto 1 -> 11 / 10 = 1 resto 1
+1234 / 10 = 123 resto 4 -> 123 / 10 = 12 resto 3 -> 12 / 10 = 1 resto 2 -> 1 / 10 = 0 resto 1 -> 1234 / 10 + 123 / 10 + 12 / 10 + 1 / 10
+
+se o resto de x por 10 for maior que 10, x/10 + x % 10  */
