@@ -1,0 +1,39 @@
+#include <stdio.h>
+void tela(int limite_inferior, int limite_superior, int contador, int numero_de_analise);
+
+
+int main(){
+
+    int limite_inferior, limite_superior;
+
+    scanf("%d %d", &limite_inferior, &limite_superior);
+
+    tela(limite_inferior, limite_superior, 1, 0);
+}
+
+void tela(int limite_inferior, int limite_superior, int contador, int numero_de_analise)
+{
+    numero_de_analise = limite_inferior + contador;
+
+    if (numero_de_analise > limite_superior) return;
+    else
+    {
+        if (((numero_de_analise % 10) != 0) && (numero_de_analise % (numero_de_analise / 10)) == 0)
+        {
+            printf("%d\n", numero_de_analise);
+            tela(limite_inferior, limite_superior, contador + 1, numero_de_analise);
+        }
+        else tela(limite_inferior, limite_superior, contador + 1, numero_de_analise);
+    }
+}
+
+/* todos os inteiros positivos entre x e y;
+n?o pode terminar em 0; (n?o pode ser divisivel por 10)
+se o d?gito da direita for removido, o n?mero restante ? divisor do original (numero original % (numero original / 10)) == 0 
+
+exemplo:
+entre 35 e 40
+imprimiu: 36 e 39
+se 6 for removido 3 ? divisor de 36, se 9 for removido 3 ? divisor de 39
+37, se 7 for removido 3 n?o ? divisor de 37.
+38, se 8 for removido 3 n?o ? divisor de 38.*/
