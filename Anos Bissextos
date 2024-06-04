@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void bissexto(int limite_inferior, int limite_superior, int aumentar, int existe_bissexto)
+{
+    int ano_analizado;
+
+    ano_analizado = limite_inferior + aumentar;
+
+    if (ano_analizado > limite_superior)
+    {
+        if (existe_bissexto != 0) return;
+        else printf("-1\n");
+    } 
+    else
+    {
+        if ((ano_analizado % 100) == 0)
+        {
+            if ((ano_analizado % 400) == 0)
+            {
+                printf("%d\n", ano_analizado);
+                bissexto(limite_inferior, limite_superior, aumentar + 1, existe_bissexto + 1);
+            }
+            else
+            {
+                bissexto(limite_inferior, limite_superior, aumentar + 1, existe_bissexto);
+            }
+        }
+        else if ((ano_analizado % 4) == 0)
+        {
+            printf("%d\n", ano_analizado);
+            bissexto(limite_inferior, limite_superior, aumentar + 1, existe_bissexto + 1);
+        }
+        else
+        {   
+            bissexto(limite_inferior, limite_superior, aumentar + 1, existe_bissexto);
+        } 
+        
+    }
+}
+int main()
+{
+
+    int menor_ano, maior_ano;
+
+    scanf("%d %d", &menor_ano, &maior_ano);
+
+    bissexto(menor_ano, maior_ano, 0, 0);
+
+    return 0;
+}
