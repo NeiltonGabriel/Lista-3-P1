@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+void ler();
+void sequencia(int numero, int contador, int posicaomenos2, int posicaomenos1);
+
+int main()
+{
+
+    ler();
+
+    return 0;
+}
+
+void ler()
+{
+
+    int numero;
+
+    scanf("%d", &numero);
+
+    if (numero != 0)
+    {
+        sequencia(numero, 2, 0, 1); //numero eh a posicao da sequencia de fibonacci, 2 eh o caso onde ainda nao teve soma, 0 eh o primeiro valor e 1 eh o segundo
+        ler();
+    }
+    else return;
+
+}
+
+void sequencia(int numero, int contador, int posicaomenos2, int posicaomenos1)
+{
+
+    if (numero == 1)
+    {
+
+        printf("%d\n", posicaomenos2);
+
+    } 
+    else if (contador > numero)
+    {
+
+        printf("\n");
+
+    }
+    else
+    {
+
+        if (contador == 2)
+        {
+
+            printf("%d %d", posicaomenos2, posicaomenos1);
+
+            int novaposicao = posicaomenos1 + posicaomenos2;
+
+            sequencia(numero, contador + 1, posicaomenos1, novaposicao);
+
+        }
+        else
+        {
+
+            printf(" %d", posicaomenos1);
+
+            int novaposicao = posicaomenos1 + posicaomenos2;
+
+            sequencia(numero, contador + 1, posicaomenos1, novaposicao);
+
+        }
+
+    }
+
+
+}
